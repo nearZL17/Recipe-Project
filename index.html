@@ -12,100 +12,91 @@
     <title>Document</title>
 </head>
 <body class="bg-slate-300 h-screen w-full space-y-16">
-    <div class="container flex items-center justify-between mx-auto w-full h-28 bg-cover " style="background-image: url('img/373565.webp');">
+    <!-- Header Section -->
+    <div class="container flex items-center justify-between mx-auto w-full h-28 bg-cover" style="background-image: url('img/373565.webp');">
         <h1 class="text-3xl ml-2" style="font-family: 'Dancing Script', cursive;">Magic Recipe</h1>
         <input type="text" class="w-1/3 shadow-2xl bg-slate-300 h-1/2 rounded-3xl mx-auto">
-        <div class="flex  flex-col sm:flex-row sm:space-x-3">
+        <div class="flex flex-col sm:flex-row sm:space-x-3">
             <button class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md">Sign in</button>
             <button class="bg-white border border-black w-20 h-7 rounded-md">Log in</button>
         </div>
     </div>
-    <section class="container mx-auto flex flex-col justify-between space-y-10   ">
-        <div class="bg-slate-200  mx-auto p-3">
-            <button class="w-14 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border">All</button>
-            <button class="w-14 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border ">Italic</button>
-            <button class="w-20 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border ">Algeria</button>
-            <button class="w-14 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border ">Areb</button>
-            <button class="w-14 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border ">Asia</button>
-            <button class="w-20 hover:border hover:border-slate-900 hover: transition-all focus:p-3 focus:border-slate-900 focus:border">famouse</button>
-            <button class="w-20 hover:bg-red-700 hover:text-white h-14  transition-all focus:rounded-lg focus:bg-red-700 focus:text-white">Favorite</button>
+
+    <!-- Main Content Section -->
+    <section class="container mx-auto flex flex-col space-y-10">
+        <!-- Buttons Row -->
+        <div class="bg-slate-200 mx-auto p-3 space-x-2 flex flex-wrap justify-center">
+            <button class="w-14 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">All</button>
+            <button class="w-14 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">Italic</button>
+            <button class="w-20 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">Algeria</button>
+            <button class="w-14 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">Areb</button>
+            <button class="w-14 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">Asia</button>
+            <button class="w-20 hover:border hover:border-slate-900 transition-all focus:p-3 focus:border-slate-900 focus:border">Famous</button>
+            <button class="w-20 hover:bg-red-700 hover:text-white h-14 transition-all focus:rounded-lg focus:bg-red-700 focus:text-white">Favorite</button>
         </div>
+
+        <!-- Recipes Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mx-5">
+            <!-- Recipe Card -->
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+            <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
+                <img src="img/209183.webp" alt="food" class="w-full rounded-t-lg">
+                <svg class="absolute top-2 right-2 w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"/>
+                </svg>
+                <h2 class="pl-2 font-bold text-xl">Taam</h2>
+                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">View the Recipe</button>
+            </div>
+
         
-        <div class="container grid grid-cols-2 sm:grid-cols-4 ml-5 items-center  space-x-4 space-y-4 h-40">
-            
-        
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
-            <div class="bg-white space-y-3 relative  ">
-                <img class="w-full" class="	" src="img/209183.webp" width="180px" alt="food">
-                <svg class="absolute w-10 h-10 right-0 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="size-5">
-                    <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                  </svg>
-                  
-                  
-                <h2 class="pl-2 font-bold text-xl">Taam</h2>
-                <button class="bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold">Viwe the Recipe</button>
-            </div>
         </div>
     </section>
-    
 </body>
 </html>
