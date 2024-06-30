@@ -1,9 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'dancing-script': ['"Dancing Script"', 'cursive'],
+      },
+    },
   },
-  plugins: [],
+  variants: {},
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.optical-sizing-auto': {
+          fontOpticalSizing: 'auto',
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
 }
 
