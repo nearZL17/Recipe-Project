@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="${meal.strMealThumb}" alt="food" class="w-full rounded-t-lg">
             <h2 class="pl-2 font-bold text-xl">${meal.strMeal}</h2>
             <button class="recipe-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">View Recipe</button>
+            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">Favorite</button>
           </div>`;
       });
 
@@ -149,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="${meal.strMealThumb}" alt="food" class="w-full rounded-t-lg">
             <h2 class="pl-2 font-bold text-xl">${meal.strMeal}</h2>
             <button class="recipe-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">View Recipe</button>
+            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">Favorite</button>
           </div>`;
       });
 
@@ -180,4 +182,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Fetch and display countries
   fetchAndDisplayCountries();
+  
 });
