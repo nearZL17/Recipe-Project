@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* input.css */
+.glass-effect {
+    @apply bg-white bg-opacity-10 backdrop-blur-md rounded-3xl border border-white border-opacity-20 shadow-lg;
+}
