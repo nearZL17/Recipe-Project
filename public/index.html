@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="fileJS/index.js"></script>
+    <script src="fileJS/home.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="scr/input.css" />
-    <title>Home</title>
+    <title>Document</title>
   </head>
   <body class="bg-slate-300 h-screen w-full space-y-16">
     <!-- Header Section -->
@@ -36,10 +36,20 @@
         </button>
       </div>
       <div class="flex flex-col sm:flex-row sm:space-x-3">
+        <a
+          href="index.html"
+          class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md pl-4"
+          >Home</a
+        >
+        <a
+          href="Favorite.html"
+          class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md pl-2"
+          >Favorites</a
+        >
         <button
           class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md"
         >
-          Sign in
+          Sign In
         </button>
         <button class="bg-white border border-black w-20 h-7 rounded-md">
           Log in
@@ -51,7 +61,7 @@
     <section class="container mx-auto flex flex-col space-y-10">
       <div
         id="buttonsContainer"
-        class="bg-slate-200 mx-auto p-3 space-x-2 flex flex-wrap justify-center"
+        class="bg-slate-200 mx-auto p-3 grid grid-cols-6 md:grid md:grid-cols-9 space-x-6"
       ></div>
 
       <!-- Recipes Grid -->
