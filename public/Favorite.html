@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meal Search</title>
-</head>
-<body>
-  <input type="text" id="searchinput" placeholder="Search for a meal">
-  <button onclick=" test()" id="search-btn">Search</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="fileJS/favorites.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="scr/input.css" />
+    <title>Favorites</title>
+  </head>
+  <body class="bg-slate-300 h-screen w-full space-y-16">
+    <!-- Header Section -->
+    <div
+      class="container flex items-center justify-between mx-auto w-full h-28 bg-cover"
+      style="background-image: url('img/373565.webp')"
+    >
+      <h1 class="text-3xl ml-2" style="font-family: 'Dancing Script', cursive">
+        Magic Recipe
+      </h1>
+      <div
+        class="flex items-center justify-center w-5/6 h-1/2 neg-mx-4 flex-col"
+      >
+        <input
+          id="searchinput"
+          type="text"
+          class="w-1/2 shadow-2xl bg-white h-96 rounded-3xl mx-auto"
+        />
+        <button id="seachbtn" class="bg-orange-700 w-20 rounded-full mx-auto">
+          Search
+        </button>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:space-x-3">
+        <a
+          href="index.html"
+          class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md pl-4"
+          >Home</a
+        >
+        <a
+          href="Favorite.html"
+          class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md pl-2"
+          >Favorites</a
+        >
+        <button
+          class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md"
+        >
+          Sign in
+        </button>
+        <button class="bg-white border border-black w-20 h-7 rounded-md">
+          Log in
+        </button>
+      </div>
+    </div>
 
-  <div id="recipe-details"></div> <!-- Container to display the meal list -->
+    <!-- Main Content Section -->
+    <section class="container mx-auto flex flex-col space-y-10">
+      <div
+        id="buttonsContainer"
+        class="bg-slate-200 mx-auto p-3 grid grid-cols-6 md:grid md:grid-cols-9 space-x-6"
+      ></div>
 
-  <script >
-    document.addEventListener("DOMContentLoaded", function() {
-  const recipeDetailsDiv = document.querySelector("#recipe-details");
+      <!-- Recipes Grid -->
+      <div
+        id="RecGrid"
+        class="grid grid-cols-2 sm:grid-cols-4 gap-4 mx-5"
+      ></div>
+    </section>
 
-  if (!recipeDetailsDiv) {
-    console.error("No element with ID 'recipe-details' found.");
-    return;
-  }
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const mealId = urlParams.get('id');
-
-  if (!mealId) {
-    console.error("No meal ID found in URL parameters.");
-    return;
-  }
-
-  async function fetchRecipeDetails(id) {
-    try {
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP-Error: ${response.status}`);
-      }
-      const data = await response.json();
-      console.log("Recipe details:", data);
-
-      // Display recipe details in the div
-      recipeDetailsDiv.innerHTML = `
-        <h2>${data.meals[0].strMeal}</h2>
-        <img src="${data.meals[0].strMealThumb}" alt="food">
-        <p>${data.meals[0].strInstructions}</p>
-        <!-- Add more details as needed -->
-      `;
-
-    } catch (error) {
-      console.error("Error fetching recipe details:", error.message);
-    }
-  }
-
-  fetchRecipeDetails(mealId);
-});
-
-  </script>
-</body>
+    <!-- Recipe Details Section -->
+    <section
+      id="recipeD"
+      class="container mx-auto flex flex-col space-y-10 bg-gray-200 px-3"
+    >
+      <div id="recipeDetails"></div>
+    </section>
+  </body>
 </html>
