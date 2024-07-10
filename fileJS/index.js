@@ -20,21 +20,18 @@ document.addEventListener("DOMContentLoaded", function() {
       const data = await response.json();
       console.log(data);
 
-      // Clear the RecGrid before adding new content
       RecGrid.innerHTML = '';
 
-      // Loop through each meal and create HTML for it
       data.meals.forEach(meal => {
         RecGrid.innerHTML += `
           <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
             <img src="${meal.strMealThumb}" alt="food" class="w-full rounded-t-lg">
             <h2 class="pl-2 font-bold text-xl">${meal.strMeal}</h2>
             <button class="recipe-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">View Recipe</button>
-            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">Favorite</button>
+            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}" data-meal-name="${meal.strMeal}" data-meal-thumb="${meal.strMealThumb}">Favorite</button>
           </div>`;
       });
 
-      // Add event listeners to each recipe button
       const recipeButtons = document.querySelectorAll(".recipe-btn");
       recipeButtons.forEach(button => {
         button.addEventListener("click", async function() {
@@ -44,8 +41,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       });
 
+      const favoriteButtons = document.querySelectorAll(".favorite-btn");
+      favoriteButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          const mealId = button.getAttribute("data-meal-id");
+          const mealName = button.getAttribute("data-meal-name");
+          const mealThumb = button.getAttribute("data-meal-thumb");
+          saveFavoriteRecipe({ id: mealId, name: mealName, thumb: mealThumb });
+        });
+      });
     } catch (error) {
       console.error("Error fetching data:", error.message);
+    }
+  }
+
+  function saveFavoriteRecipe(recipe) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.some(fav => fav.id === recipe.id)) {
+      favorites.push(recipe);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      alert(`${recipe.name} has been added to your favorites!`);
+    } else {
+      alert(`${recipe.name} is already in your favorites!`);
     }
   }
 
@@ -56,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         throw new Error(`HTTP-Error: ${response.status}`);
       }
       const data = await response.json();
-      return data.meals[0]; // Return the meal object
+      return data.meals[0];
     } catch (error) {
       console.error('Error fetching recipe details:', error);
       return null;
@@ -67,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
     try {
       const recipe = await fetchRecipeDetails(idMeal);
       if (recipe) {
-        // Collect all ingredients
         const ingredients = [];
         for (let i = 1; i <= 20; i++) {
           const ingredient = recipe[`strIngredient${i}`];
@@ -77,13 +93,11 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
 
-        // Extract YouTube video ID
         const youtubeUrl = recipe.strYoutube;
         const videoId = youtubeUrl.split('v=')[1];
         const ampersandPosition = videoId ? videoId.indexOf('&') : -1;
         const cleanVideoId = ampersandPosition !== -1 ? videoId.substring(0, ampersandPosition) : videoId;
 
-        // Display the recipe details
         recipeDetailsDiv.innerHTML = `
           <h1 class="font-extrabold text-3xl mb-4">${recipe.strMeal}</h1>
           <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" class="w-full rounded-lg mb-4">
@@ -114,12 +128,11 @@ document.addEventListener("DOMContentLoaded", function() {
       const data = await response.json();
       const countries = data.meals;
 
-      // Clear the container before adding new buttons
       buttonsContainer.innerHTML = '';
 
       countries.forEach(country => {
         const countryButton = document.createElement('button');
-        countryButton.className = 'w-20 hover:border hover:border-slate-900 transition-all focus:p-4 focus:border-slate-900 focus:border  pr-5';
+        countryButton.className = 'w-20 hover:border hover:border-slate-900 transition-all focus:p-4 focus:border-slate-900 focus:border pr-5';
         countryButton.textContent = country.strArea;
         countryButton.addEventListener('click', () => {
           getFilteredRecipesByCountry(country.strArea);
@@ -140,21 +153,18 @@ document.addEventListener("DOMContentLoaded", function() {
       const data = await response.json();
       console.log(data);
 
-      // Clear the RecGrid before adding new content
       RecGrid.innerHTML = '';
 
-      // Loop through each meal and create HTML for it
       data.meals.forEach(meal => {
         RecGrid.innerHTML += `
           <div class="bg-white space-y-3 relative p-4 rounded-lg shadow-lg">
             <img src="${meal.strMealThumb}" alt="food" class="w-full rounded-t-lg">
             <h2 class="pl-2 font-bold text-xl">${meal.strMeal}</h2>
             <button class="recipe-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">View Recipe</button>
-            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}">Favorite</button>
+            <button class="favorite-btn bg-amber-700 hover:bg-amber-500 w-full p-2 rounded-2xl font-bold" data-meal-id="${meal.idMeal}" data-meal-name="${meal.strMeal}" data-meal-thumb="${meal.strMealThumb}">Favorite</button>
           </div>`;
       });
 
-      // Add event listeners to each recipe button
       const recipeButtons = document.querySelectorAll(".recipe-btn");
       recipeButtons.forEach(button => {
         button.addEventListener("click", async function() {
@@ -164,12 +174,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       });
 
+      const favoriteButtons = document.querySelectorAll(".favorite-btn");
+      favoriteButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          const mealId = button.getAttribute("data-meal-id");
+          const mealName = button.getAttribute("data-meal-name");
+          const mealThumb = button.getAttribute("data-meal-thumb");
+          saveFavoriteRecipe({ id: mealId, name: mealName, thumb: mealThumb });
+        });
+      });
     } catch (error) {
       console.error("Error fetching data", error.message);
     }
   }
 
-  // Event listener for the search button
   searchBtn.addEventListener("click", function() {
     const ingredient = searchInput.value.trim();
     if (ingredient) {
@@ -177,10 +195,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Initial load of recipes with a default ingredient
   getFilteredRecipes('chicken_breast');
-
-  // Fetch and display countries
   fetchAndDisplayCountries();
-  
-}); 
+});
