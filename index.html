@@ -10,41 +10,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scr/input.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
     <title>Magic Recipe</title>
+    <style>
+        .dark .bg-slate-300 { background-color: #1a202c; }
+        .dark .bg-white { background-color: #2d3748; }
+        .dark .text-black { color: #cad0d8; }
+        .dark .bg-orange-700 { background-color: #dd6b20; }
+        .dark .bg-amber-700 { background-color: #b7791f; }
+    </style>
 </head>
 <body class="bg-slate-300 h-screen w-full space-y-16">
     <!-- Header Section -->
     <div class="container flex items-center justify-between mx-auto w-full h-28 bg-cover" style="background-image: url('img/373565.webp');">
         <h1 class="text-3xl ml-2" style="font-family: 'Dancing Script', cursive;">Magic Recipe</h1>
         <div class="flex items-center justify-center w-5/6 h-1/2 flex-col">
-            <input id="searchinput" type="text" class="w-1/2 shadow-2xl bg-white h-96 rounded-3xl mx-auto" placeholder="Search recipes...">
+            <input id="searchinput" type="text" class="w-1/2 shadow-2xl bg-white h-96 rounded-3xl mx-auto pl-4" placeholder="Search recipes...">
             <button id="seachbtn" class="bg-orange-700 w-20 rounded-full mx-auto">Search</button>
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-3">
             <a href="index.html" class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md text-center">Home</a>
             <a href="Favorite.html" class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md text-center">Favorites</a>
             <button class="bg-inherit hover:bg-amber-800 font-bold hover:text-white border border-black w-20 h-7 rounded-md">Sign In</button>
-            <button class="bg-white border border-black w-20 h-7 rounded-md">Log in</button>
+            <button id="themeToggle" class="bg-white border border-black w-20 h-7 rounded-md flex justify-center items-center">
+                <i class='bx bxs-moon'></i>
+            </button>
         </div>
     </div>
 
     <!-- Main Content Section -->
     <section class="container mx-auto flex flex-col space-y-10">
         <div id="buttonsContainer" class="bg-slate-200 mx-auto p-3 grid grid-cols-6 md:grid-cols-9 space-x-6">
-            <!-- Buttons will be dynamically added here -->
         </div>
 
         <!-- Recipes Grid -->
         <div id="RecGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mx-5">
-            <!-- Recipe cards will be dynamically added here -->
         </div>
     </section>
 
     <!-- Recipe Details Section -->
     <section id="recipeD" class="container mx-auto flex flex-col space-y-10 bg-gray-200 px-3">
         <div id="recipeDetails">
-            <!-- Recipe details will be dynamically added here -->
         </div>
     </section>
     
@@ -57,13 +62,13 @@
                 <input class="h-7 rounded-md pl-2 md:w-96 md:h-10" type="email" name="Email" placeholder="Email" id="email">
             </div>
             <textarea class="h-auto w-52 rounded-md pl-2 md:w-1/2 md:h-40 text-center" placeholder="Rate Us" id="Countact"></textarea>
-            <button class="bg-orange-700 hover:rounded-md hover:transform hover:shadow-xl text-white rounded-sm px-4 py-2 mb-3 hover:bg-orange-500">Connect</button>
+            <button class="bg-white hover:rounded-md hover:transform hover:shadow-xl text-black  rounded-lg px-4 py-2 mb-3 hover:bg-orange-500">Connect</button>
         </div>
-        <div class="flex justify-center items-center space-x-3">
+        <div class="flex justify-center items-center space-x-3 mt-3">
             <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAT9JREFUWEftl2ESwUAMhV9vwk04CU6Ck+Ak3ISb0GfEpGm722xrp2N2/xRV+fLykl0VZraqmfGgAMUqUhT6S4VWn6wWJjv73ib/UB/Ia3ttCdbnoS2APYBY0FgF+u7fAFwA8KrBO9v+VH+JQDnWsQ5y0IGsQlTknoNExVhqlSwQaVmqnKuhkgW61nUVE+eCOgPYSbCxQDTkWOPT2Os+IPrHE4AJje1IJkUfvZdV6Omsk36e3clyexJqcUwJxB8nEJvC68Mvx9RAkjGBqNhQtbIAeZT6GRAVES957NgLlNJlEjh1qAa7LAXop23vBeJQ83aULWVwMM5u68h59BClgpsr5adKOVfw+EGQnCo1/NO1l+kW3jgmbYqirdNiCEgCcNDp8S+vh24J9qCffMhPyXiSZ8o/15iMRaGiUEyB2P0X/JA3Je9gR1QAAAAASUVORK5CYII="  alt="Social icon"></a>
             <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAbhJREFUWEftmI1Nw0AMhV83oZMAk1AmASaBTgJMAptAH8qhnOPfXBAVwlLVVk0vX5/f+ezucGaxOzMe/BmgCwAHAJcA+JqP90ltPvNxBPBSzUBVoXsAd4WbNDB+LxVZoCsAj5MSqYXFRWmwDFBVFQ/44fShq1YE9HzyAdXZMp4A3FoLekAjyjSD0+xamEpZQFSF6lSCN+GukjuLu5H+k0GVqFYXFtBb0cDXzha3gKjiPgNkLWCpFRnVW2/xXU2hqjqWys0/rWRoP2ihklysqo4mO0HoP8vQEqxLtwSi+QiVDW0LV9fo0iaBqnVnCyDuSqr0FRKo6p8tgLq0S6CPbK6m634dSK0dwY/IeOpbmGrKfgLITVlk6jVAkS9dU0cH6hqgyJedD2XKokOVQPPD81U5IFtrS2uxOEbti1sYq1V2i13WiaKdQ5XjYxRo0YJoQBWVRoEW9x9t0EaA1B5qtIVdC2T21R5QGwa9OWwNUFd3Mh2jvMarTVUgd+LQTnvrWLIGxSwQ6xd3VDhaR3PZHLCl8GbWDUZA6YnV6ocy3Uf7c6FVYDmJtvfaSBSuX1EoXGyLC/6BIhU/AVLjciU2IBAOAAAAAElFTkSuQmCC" alt="Social icon"></a>
-            <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAjVJREFUWEftl81KHUEQhT+fQ4SIuNBFFoL7+AYacSEuog8hiASjiISQh1DRlZJAniC6Fpfqyr+F5DF0DnSFcW5Pd40zF65wG4bLpburTp86VdU9woCNkQHDwxBQLiJNGPoA6PuUM1qafwD0nXn3eACtAvteg4l1AnZYzG+nbKUAiQ0BacKIB7eAzQXmetanAP3tAxgDoBAKlBtQV2FKMbZWaPKguqCOofsgYE8Icmt2gqgVfsnAhkI37gX0nPPinBcDYkJDWpQMyqOHkBhDTcKl0+ukcmwlQb/fgtcyCzG70tGrkvBWQMlMCeAsQ60WxbK1R0cxQKoTdsJYZMoZMgHMAtPFHoX5GrgA7iqg6iIshl/VpbcAMpo/BmMLFW+/woGuAiglSN8AmUiVHT+BxRpPp8B6IejHUFyln9hozZDFfKkI00km0wT2d0122dbWgMSMRLoFyFhqfAX2MmFrDcj0I2e7GUCbwPd+M2SAPgMSb2rMA38KRlN1rTVDJuox4AewXIPoGNgAnvotaulHwlYtmgzpvVIBdRT0dZsJl7a1ZkhGyu1gFJgBpkJhvAEugX8BZO4K4wLk6WWe1iEw5e4ei66rdcS6csyY3ZXPA2v6bwUw1XrKtlzNVadKlftMcjWatrr2f1PdBS0X+0ZeE4td9yHt9+ioLaiecMngu7nkC6y0JKa8AvUyVvviyDFkDgTqSwdPotYPxeqJ7Sltv00Y6fQp7XXcyTrP274TR14jQ0A5pl4AHduBJajLRB0AAAAASUVORK5CYII=" alt="Social icon"></a>
-            <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAY5JREFUWEftl41NAzEMRt1NYBJgEmCSwiTQSYBJYJM2T8JSlHNih2vCCWqpvUrtuS+ff28nG7PdxnjkTwM9ici+UPxdRO56onBOhSygLxG53hIQLCiEUiEbrRAQXWGbAQTUc3ojpK7NAiKXDhGoWUCqzGvKqQ8R4WrabCCFQDFsUYG/BaRgi///d0CEhgqjg18ZSbNKIRw+iMhN6i236XNZOa3Rwb3cc/99XRUyBSnnVNlfemYZPnktOriXQ9z0UpwqVz5veD1A1QbZAgLmrRJ7dTgVCBji3rJpQIAAZBkQmHZbbXJDQ0beUFGltVaJoUCfRu48tmZQIh8KdDTUYe5oeKxQDgOiulCoNK9FTAfyVlEr70h8Qh222qmtkHlb30/uCYfBOi35w2mthb3WszxVw0C1PqQDFSg+0xoYmNYk71rulayVqJFO3cqNbnVwtnaW1YC8fKsexCvlyIAtnXdXVu7AA+K3rX0o96XbYfWJIlL7ESD1k2+MeRLzvIWFHgQ9qB4gz9dZvr8AeTKeAHtvYCVT2aOxAAAAAElFTkSuQmCC" alt="Social icon"></a>
+            <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAY5JREFUWEftl41NAzEMRt1NYBJgEmCSwiTQSYBJYJM2T8JSlHNih2vCCWqpvUrtuS+ff28nG7PdxnjkTwM9ici+UPxdRO56onBOhSygLxG53hIQLCiEUiEbrRAQXWGbAQTUc3ojpK7NAiKXDhGoWUCqzGvKqQ8R4WrabCCFQDFsUYG/BaRgi///d0CEhgqjg18ZSbNKIRw+iMhN6i236XNZOa3Rwb3cc/99XRUyBSnnVNlfemYZPnktOriXQ9z0UpwqVz5veD1A1QbZAgLmrRJ7dTgVCBji3rJpQIAAZBkQmHZbbXJDQ0beUFGltVaJoUCfRu48tmZQIh8KdDTUYe5oeKxQDgOiulCoNK9FTAfyVlEr70h8Qh222qmtkHlb30/uCYfBOi35w2mthb3WszxVw0C1PqQDFSg+0xoYmNYk71rulayVqJFO3cqNbnVwtnaW1YC8fKsexCvlyIAtnXdXVu7AA+K3rX0o96XbYfWJIlL7ESD1k2+MeRLzvIWFHgQ9qB4gz9dZvr8AeTKeAHtvYCVT2aOxAAAAAElFTkSuQmCC"/></a>
+            <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAjVJREFUWEftl81KHUEQhT+fQ4SIuNBFFoL7+AYacSEuog8hiASjiISQh1DRlZJAniC6Fpfqyr+F5DF0DnSFcW5Pd40zF65wG4bLpburTp86VdU9woCNkQHDwxBQLiJNGPoA6PuUM1qafwD0nXn3eACtAvteg4l1AnZYzG+nbKUAiQ0BacKIB7eAzQXmetanAP3tAxgDoBAKlBtQV2FKMbZWaPKguqCOofsgYE8Icmt2gqgVfsnAhkI37gX0nPPinBcDYkJDWpQMyqOHkBhDTcKl0+ukcmwlQb/fgtcyCzG70tGrkvBWQMlMCeAsQ60WxbK1R0cxQKoTdsJYZMoZMgHMAtPFHoX5GrgA7iqg6iIshl/VpbcAMpo/BmMLFW+/woGuAiglSN8AmUiVHT+BxRpPp8B6IejHUFyln9hozZDFfKkI00km0wT2d0122dbWgMSMRLoFyFhqfAX2MmFrDcj0I2e7GUCbwPd+M2SAPgMSb2rMA38KRlN1rTVDJuox4AewXIPoGNgAnvotaulHwlYtmgzpvVIBdRT0dZsJl7a1ZkhGyu1gFJgBpkJhvAEugX8BZO4K4wLk6WWe1iEw5e4ei66rdcS6csyY3ZXPA2v6bwUw1XrKtlzNVadKlftMcjWatrr2f1PdBS0X+0ZeE4td9yHt9+ioLaiecMngu7nkC6y0JKa8AvUyVvviyDFkDgTqSwdPotYPxeqJ7Sltv00Y6fQp7XXcyTrP274TR14jQ0A5pl4AHduBJajLRB0AAAAASUVORK5CYII="/></a>
         </div>
         <p class="text-center text-black">Copyright © 2024 Magic Recipe. All rights reserved.</p>
         <div class="text-center">
@@ -71,5 +76,6 @@
             <a href="#" class="text-white mx-2">Terms & Conditions</a>
         </div>
     </footer>
+    
 </body>
 </html>

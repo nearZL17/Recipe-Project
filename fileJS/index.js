@@ -5,11 +5,22 @@ document.addEventListener("DOMContentLoaded", function() {
   const searchInput = document.querySelector("#searchinput");
   const searchBtn = document.querySelector("#seachbtn");
   const buttonsContainer = document.querySelector("#buttonsContainer");
+  
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = themeToggle.querySelector('i');
 
-  if (!RecGrid) {
-    console.error("No element with ID 'RecGrid' found.");
-    return;
-  }
+  themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+          themeIcon.classList.replace('bxs-moon', 'bxs-sun');
+      } else {
+          themeIcon.classList.replace('bxs-sun', 'bxs-moon');
+      }
+  });
+  // if (!RecGrid) {
+  //   console.error("No element with ID 'RecGrid' found.");
+  //   return;
+  // }
 
   async function getFilteredRecipes(ingredient) {
     try {
@@ -194,6 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
       getFilteredRecipes(ingredient);
     }
   });
+
 
   getFilteredRecipes('chicken_breast');
   fetchAndDisplayCountries();
