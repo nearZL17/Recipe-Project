@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       countries.forEach(country => {
         const countryButton = document.createElement('button');
-        countryButton.className = 'w-20 hover:border hover:border-slate-900 transition-all focus:p-4 focus:border-slate-900 focus:border pr-5';
+        countryButton.className = 'w-20 hover:border hover:border-slate-900 transition-all  focus:border-slate-900 focus:border ';
         countryButton.textContent = country.strArea;
         countryButton.addEventListener('click', () => {
           getFilteredRecipesByCountry(country.strArea);
