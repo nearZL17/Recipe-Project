@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
           themeIcon.classList.replace('bxs-sun', 'bxs-moon');
       }
   });
-  // if (!RecGrid) {
-  //   console.error("No element with ID 'RecGrid' found.");
-  //   return;
-  // }
+  if (!RecGrid) {
+    console.error("No element with ID 'RecGrid' found.");
+    return;
+  }
 
   async function getFilteredRecipes(ingredient) {
     try {
